@@ -8,11 +8,11 @@ fn main(){
 }
 
 // Solution for part 1
-fn part1(input: &Vec<String>) {
+fn part1(_input: &Vec<String>) {
     println!("Part 1: {}", 0);
 }
 
 // Solution for part 2
-fn part2(input: &Vec<String>) {
+fn part2(_input: &Vec<String>) {
     println!("Part 2: {}", 0);
 }
