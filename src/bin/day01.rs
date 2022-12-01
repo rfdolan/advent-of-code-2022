@@ -1,11 +1,13 @@
 use std::vec::Vec;
 
+const PART2_NUM_ELVES: usize = 3;
+
 fn main(){
     let vec = inp::parse_file("day01.txt");
     solve(&vec);
 }
 
-// Solution for part 2
+// Solution
 fn solve(input: &Vec<String>) {
     let mut curr_elf_amt = 0;
     let mut total_cal_vec: Vec<u32> = Vec::new();
@@ -20,9 +22,9 @@ fn solve(input: &Vec<String>) {
     }
     total_cal_vec.push(curr_elf_amt);
     total_cal_vec.sort();
-    total_cal_vec.reverse();
-    println!("Part 1: {}", total_cal_vec[0]);
 
-    let part_2_total: u32 = total_cal_vec[..3].iter().sum();
+    println!("Part 1: {}", total_cal_vec[total_cal_vec.len()-1]);
+
+    let part_2_total: u32 = total_cal_vec[total_cal_vec.len() - PART2_NUM_ELVES..].iter().sum();
     println!("Part 2: {}", part_2_total);
 }
