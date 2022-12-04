@@ -1,4 +1,5 @@
 use std::vec::Vec;
+use std::collections::HashSet;
 
 const THE_ALPHABET: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 fn main(){
@@ -17,37 +18,31 @@ fn get_char_value(input: char) -> u32 {
 fn solve(input: &Vec<String>) {
 	let mut score1 = 0;
 	let mut score2 = 0;
-	let mut possible_letters = THE_ALPHABET.to_string();
+	let mut possible_letters = THE_ALPHABET.chars().collect::<HashSet<_>>();
 	let mut bag_number = 0;
 
 	for bag in input {
-		let mut intersection = bag[..(bag.len()/2)]
-		    .chars()
-			.into_iter()
-			.filter(|x| bag[(bag.len()/2)..]
-			.contains(*x))
-			.collect::<Vec<char>>();
-		intersection.sort();  // Have to sort to do dedup.
-		intersection.dedup();
-		score1 += intersection
-			.iter()
+		score1 += bag[..(bag.len()/2)]
+			.chars()
+			.collect::<HashSet<_>>()
+			.intersection(&bag[bag.len()/2..]
+				.chars()
+				.collect::<HashSet<_>>())
 			.fold(0, |acc, x| acc + get_char_value(*x));
 
 		bag_number += 1;
-		possible_letters = possible_letters
-			.chars()
-			.into_iter()
-			.filter(|x| bag
-			.contains(*x))
-			.collect();
+		possible_letters = possible_letters.intersection(&bag
+				.chars()
+				.collect::<HashSet<_>>())
+			.map(|x| *x)
+			.collect::<HashSet<char>>();
 
 		if bag_number == 3 {
-			score2 += get_char_value(possible_letters
-			.chars()
+			score2 += get_char_value(*possible_letters.iter()
 			.next()
 			.expect("No badge shared between all 3 bags."));
 			bag_number = 0;
-			possible_letters = THE_ALPHABET.to_string();
+			possible_letters = THE_ALPHABET.chars().collect::<HashSet<_>>();
 		}
 	}
 
