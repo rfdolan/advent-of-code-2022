@@ -20,7 +20,7 @@ fn is_visible(tree: u32, trees: &[u32]) -> bool {
 	true
 }
 
-fn print_forest(input: &Vec<Vec<u32>>) {
+fn _print_forest(input: &Vec<Vec<u32>>) {
 	for row in input {
 		for col in row {
 			print!("{}", *col);

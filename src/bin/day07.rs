@@ -8,7 +8,7 @@ const REQUIRED_SPACE: u32 = 30000000;
 #[derive (Clone)]
 struct File {
 	size: u32,
-	name: String
+	_name: String
 }
 
 #[derive (Clone)]
@@ -22,7 +22,7 @@ fn _print_filesystem(filesystem: HashMap<String, Directory>) {
 	for x in filesystem.iter() {
 		println!("DIR: {}", x.0);
 		for file in &x.1.files {
-			println!("{}/{}: size: {}", x.0, file.name, file.size );
+			println!("{}/{}: size: {}", x.0, file._name, file.size );
 		}
 		for sub in &x.1.subdirectories {
 			println!("sibdir:{}", sub);
@@ -86,7 +86,7 @@ fn construct_filesystem_recursive(input: &[String], current_filesystem: HashMap<
 		} else {
 			// File, create it
 			let new_file = File{size: split[0].parse::<u32>().expect(&format!(">Error: file size {} was not a number", split[0])), 
-				name: split[1].to_string()};
+				_name: split[1].to_string()};
 			match new_filesystem.get(&curr_dir) {
 				Some(x) =>  {
 					let mut temp = x.clone();
