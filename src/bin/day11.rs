@@ -32,6 +32,7 @@ fn _print_monkies(input: &Vec<Monkey>) {
 }
 
 fn get_monkey(input: &[String], id: u32) -> Monkey {
+	// Don't look please.
 	let start_items = input[1].split(",")
 		.collect::<Vec<&str>>()
 		.iter()
@@ -80,7 +81,6 @@ fn do_op(op: &str, op_num: u128, num: u128) -> u128 {
 		0 => num,
 		x => x
 	};
-	//println!("{} {} {}", num, monkey.operation, item);
 	match op {
 		"+" => op_num + num,
 		"*" => op_num * num,
@@ -95,8 +95,7 @@ fn run_sim(input: &Vec<Monkey>, num_rounds: usize, divide_by_3: bool) -> u128 {
 	for x in 0..input.len() {
 		times_each_monkey_inspected.insert(x as u32, 0);
 	}
-	for round in 0..num_rounds {
-		//println!("Round {}", round);
+	for _ in 0..num_rounds {
 		for i in 0..monkey_list.len() {
 			let mut list_clone = monkey_list.clone();
 			let monkey = &mut list_clone[i];
