@@ -2,8 +2,8 @@ use std::vec::Vec;
 use std::collections::VecDeque;
 
 fn main(){
-    let vec = inp::parse_file("day06.txt");
-    solve(&vec);
+  let vec = inp::parse_file("day06.txt");
+  solve(&vec);
 }
 
 fn all_different(mut input: VecDeque<char>) -> bool {
@@ -41,6 +41,6 @@ fn find_signal_position(in_string: &String, msg_len: usize) -> u32 {
 
 // Solution
 fn solve(input: &Vec<String>) {
-    println!("Part 1: {}", find_signal_position(&input[0], 4));
-    println!("Part 2: {}", find_signal_position(&input[0], 14));
+  println!("Part 1: {}", find_signal_position(&input[0], 4));
+  println!("Part 2: {}", find_signal_position(&input[0], 14));
 }

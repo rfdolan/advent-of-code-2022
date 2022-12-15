@@ -7,8 +7,8 @@ struct Point {
 }
 
 fn main(){
-    let vec = inp::parse_file("day09.txt");
-    solve(&vec);
+	let vec = inp::parse_file("day09.txt");
+	solve(&vec);
 }
 
 fn move_segment(target: Point, start: Point) -> Point {
@@ -74,6 +74,6 @@ fn solve(input: &Vec<String>) {
 	for s in visited.iter() {
 		println!("({},{})", s.x, s.y);
 	}
-    println!("Part 1: {}", first_segment_visited.len());
-    println!("Part 2: {}", visited.len());
+	println!("Part 1: {}", first_segment_visited.len());
+	println!("Part 2: {}", visited.len());
 }

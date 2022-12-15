@@ -6,8 +6,8 @@ struct Section {
 }
 
 fn main(){
-    let vec = inp::parse_file("day04.txt");
-    solve(&vec);
+  let vec = inp::parse_file("day04.txt");
+  solve(&vec);
 }
 
 fn do_overlap(pair1: &Section, pair2: &Section) -> bool {
@@ -55,6 +55,6 @@ fn solve(input: &Vec<String>) {
 			}
 		}
 	}
-    println!("Part 1: {}", contained_counter);
-    println!("Part 2: {}", overlap_counter);
+  println!("Part 1: {}", contained_counter);
+  println!("Part 2: {}", overlap_counter);
 }

@@ -3,8 +3,8 @@ use std::collections::HashSet;
 
 const THE_ALPHABET: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 fn main(){
-    let vec = inp::parse_file("day03.txt");
-    solve(&vec);
+  let vec = inp::parse_file("day03.txt");
+  solve(&vec);
 }
 
 fn get_char_value(input: char) -> u32 {
@@ -46,6 +46,6 @@ fn solve(input: &Vec<String>) {
 		}
 	}
 
-    println!("Part 1: {}", score1);
-    println!("Part 2: {}", score2);
+  println!("Part 1: {}", score1);
+  println!("Part 2: {}", score2);
 }

@@ -31,8 +31,8 @@ fn _print_filesystem(filesystem: HashMap<String, Directory>) {
 }
 
 fn main(){
-    let vec = inp::parse_file("day07.txt");
-    solve(&vec);
+	let vec = inp::parse_file("day07.txt");
+	solve(&vec);
 }
 
 fn concat_dir_names(curr_dir: String, target_dir: String) -> String {
@@ -163,7 +163,7 @@ fn solve(input: &Vec<String>) {
 	//_print_filesystem(filesystem.clone());
 	let (filesystem_size, score) = calculate_score_less_than_threshold(root.clone(), filesystem.clone());
 
-    println!("Part 1: {}", score);
+	println!("Part 1: {}", score);
 	println!("Filesystem is currently {}/{}, so we need {} space", filesystem_size, TOTAL_SIZE, filesystem_size - (TOTAL_SIZE - REQUIRED_SPACE));
-    println!("Part 2: {}", get_smallest_above_size(root.clone(), filesystem.clone(), filesystem_size - (TOTAL_SIZE - REQUIRED_SPACE), TOTAL_SIZE).1);
+	println!("Part 2: {}", get_smallest_above_size(root.clone(), filesystem.clone(), filesystem_size - (TOTAL_SIZE - REQUIRED_SPACE), TOTAL_SIZE).1);
 }

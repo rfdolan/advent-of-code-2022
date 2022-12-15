@@ -3,8 +3,8 @@ use std::vec::Vec;
 const BLOCK_SIZE: usize = 4;
 
 fn main(){
-    let vec = inp::parse_file("day05.txt");
-    solve(&vec);
+  let vec = inp::parse_file("day05.txt");
+  solve(&vec);
 }
 
 fn _print_stacks(input: &Vec<Vec<char>>) {
@@ -103,6 +103,6 @@ fn solve(input: &Vec<String>) {
 		stacks2[dest] = dest_array_2;
 	}
 
-    println!("Part 1: {}", get_top_of_each_stack(stacks1));
-    println!("Part 2: {}", get_top_of_each_stack(stacks2));
+  println!("Part 1: {}", get_top_of_each_stack(stacks1));
+  println!("Part 2: {}", get_top_of_each_stack(stacks2));
 }

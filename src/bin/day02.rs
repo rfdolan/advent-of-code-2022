@@ -2,8 +2,8 @@ use std::vec::Vec;
 
 const POSSIBLE_VALS: [u32;3] = [1,2,3];
 fn main(){
-    let vec = inp::parse_file("day02.txt");
-    solve(&vec);
+  let vec = inp::parse_file("day02.txt");
+  solve(&vec);
 }
 
 fn string_to_points(hand: &str) -> u32 {

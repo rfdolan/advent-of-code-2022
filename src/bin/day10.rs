@@ -4,8 +4,8 @@ const FIRST_RELEVANT_CYCLE: i32 = 20;
 const CYCLES_UNTIL_NEXT_RELEVANT: i32 = 40;
 
 fn main(){
-    let vec = inp::parse_file("day10.txt");
-    solve(&vec);
+	let vec = inp::parse_file("day10.txt");
+	solve(&vec);
 }
 
 fn is_in_range(target: i32, sprite_center_pos: i32) -> bool {
@@ -63,5 +63,5 @@ fn solve(input: &Vec<String>) {
 		}
 		//println!("{} * {} = {}",cycle,reg_x, (cycle *reg_x));
 	}
-    println!("Part 1: {}", strength);
+	println!("Part 1: {}", strength);
 }

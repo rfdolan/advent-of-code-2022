@@ -72,8 +72,8 @@ fn get_monkey(input: &[String], id: u32) -> Monkey {
 }
 
 fn main(){
-    let vec = inp::parse_file("day11.txt");
-    solve(&vec);
+	let vec = inp::parse_file("day11.txt");
+	solve(&vec);
 }
 
 fn do_op(op: &str, op_num: u128, num: u128) -> u128 {

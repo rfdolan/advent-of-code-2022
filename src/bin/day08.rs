@@ -1,14 +1,14 @@
 use std::vec::Vec;
 
 fn main(){
-    let vec = inp::parse_file("day08.txt").iter()
+	let vec = inp::parse_file("day08.txt").iter()
 		.map(|x| x.chars()
 			.into_iter()
 			.map(|c| c.to_digit(10)
 				.unwrap())
 			.collect::<Vec<u32>>())
 		.collect::<Vec<Vec<u32>>>();
-    solve(&vec);
+	solve(&vec);
 }
 
 fn is_visible(tree: u32, trees: &[u32]) -> bool {
@@ -85,6 +85,6 @@ fn solve(input: &Vec<Vec<u32>>) {
 
 		}
 	}
-    println!("Part 1: {}", num_visible);
-    println!("Part 2: {}", curr_most_visible_trees);
+	println!("Part 1: {}", num_visible);
+	println!("Part 2: {}", curr_most_visible_trees);
 }
