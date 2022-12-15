@@ -4,8 +4,8 @@ use std::collections::HashSet;
 
 #[derive (Eq, PartialEq, Hash, Clone, Copy)]
 struct Point {
-	x: i32,
-	y: i32
+  x: i32,
+  y: i32
 }
 fn main(){
     let vec = inp::parse_file("day14.txt");
@@ -13,29 +13,29 @@ fn main(){
 }
 
 fn get_rocks(input: &Vec<String>) -> HashSet<Point> {
-	let mut map:HashSet<Point> = HashSet::new();
-	for rock in input {
-		let rock = rock.split(" -> ")
+  let mut map:HashSet<Point> = HashSet::new();
+  for rock in input {
+    let rock = rock.split(" -> ")
       .map(|x| x.split(",")
         .map(|y| y.parse::<i32>()
           .unwrap())
         .collect::<Vec<i32>>())
       .collect::<Vec<Vec<i32>>>();
-		let mut rock_it = rock.iter();
-		let last = rock_it.next().expect("Not enough rocks!");
-		let mut last_point = Point{x: last[0], y:last[1]};
-		map.insert(last_point);
-		while let Some(next_point) = rock_it.next() {
+    let mut rock_it = rock.iter();
+    let last = rock_it.next().expect("Not enough rocks!");
+    let mut last_point = Point{x: last[0], y:last[1]};
+    map.insert(last_point);
+    while let Some(next_point) = rock_it.next() {
       let next_point = Point{x:next_point[0], y:next_point[1]};
-			while next_point != last_point {
+      while next_point != last_point {
         let new_x = (next_point.x - last_point.x).signum() + last_point.x;
         let new_y = (next_point.y - last_point.y).signum() + last_point.y;
         let new_point = Point{x:new_x, y:new_y};
         map.insert(new_point);
         last_point = new_point;
-			}
-		}
-	}
+      }
+    }
+  }
   map
 }
 
@@ -125,5 +125,5 @@ fn part2(map: &HashSet<Point>) -> i32 {
 fn solve(input: &Vec<String>) {
   let map = get_rocks(input);
   println!("Part 1: {}", part1(&map));
-	println!("Part 2: {}", part2(&map));
+  println!("Part 2: {}", part2(&map));
 }
