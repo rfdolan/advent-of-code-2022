@@ -2,6 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 use std::vec::Vec;
+use std::io::{stdin, stdout, Read, Write};
 
 // Parse file with given name in parent directory into a vector of ints
 pub fn parse_file(name: &str) -> Vec<String> {
@@ -20,4 +21,11 @@ fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
 where P: AsRef<Path>, {
   let file = File::open(filename)?;
   Ok(io::BufReader::new(file).lines())
+}
+
+pub fn pause() {
+  let mut stdout = stdout();
+  stdout.write(b"Press Enter to continue...").unwrap();
+  stdout.flush().unwrap();
+  stdin().read(&mut [0]).unwrap();
 }
